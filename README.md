@@ -95,6 +95,16 @@ Source: https://supabase.com/changelog/45329-breaking-change-tables-not-exposed-
 - Row Level Security: https://supabase.com/docs/guides/database/postgres/row-level-security
 - Database advisors: https://supabase.com/docs/guides/database/database-advisors
 - Splinter, the linter behind the advisors: https://github.com/supabase/splinter
+  
+## Newsletter
+
+The same approach applied to other tools: what they actually do, read from the
+code, reproduced on a real project first, with the actual request and response.
+This repo came out of one of those.
+
+Roughly weekly, never more than that.
+
+https://buttondown.com/reproduced
 
 ## License
 

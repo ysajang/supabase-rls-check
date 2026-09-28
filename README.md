@@ -20,7 +20,7 @@ to anon, authenticated
 using ( true );
 ```
 
-The advisor does not flag it. Lint `0024_permissive_rls_policy` deliberately
+The advisor does not flag it. Lint `0024_rls_policy_always_true` deliberately
 excludes `SELECT` policies with `using (true)`, because public read is often
 intentional. Its own SQL says so:
 

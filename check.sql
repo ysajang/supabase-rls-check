@@ -1,7 +1,7 @@
 -- 1. Always-true read policies.
 --
 -- Finds SELECT and ALL policies whose USING clause is literally true.
--- Supabase's own linter (0024 permissive_rls_policy) skips these on purpose,
+-- Supabase's own linter (0024 rls_policy_always_true) skips these on purpose,
 -- because public read is often deliberate. So a table can be fully readable
 -- by anon while the Security Advisor reports zero issues.
 --

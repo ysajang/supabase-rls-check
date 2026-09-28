@@ -30,10 +30,20 @@ intentional. Its own SQL says so:
 That exclusion is correct for an announcements feed. It is not correct for a
 notes table, and nothing in the dashboard tells you which one you have.
 
+It is not only `SELECT`. On 2026-09-28 I ran the Security Advisor, through the
+Supabase MCP server, on two of my own projects. Each had a
+`for all ... using (true)` policy that applied to every role, which means anon
+could write and delete rows, not just read them. Neither project got a
+`rls_policy_always_true` finding, although the lint's source does include
+`ALL`. I have not found out why. `check.sql` lists `ALL` policies for that
+reason, and does not rely on the advisor to catch them.
+
 ## The queries
 
 **`check.sql`** lists every `SELECT` or `ALL` policy whose `USING` clause is
-literally true. Any table in the result that is not meant to be public is
+literally true and that applies to `anon`, `authenticated` or every role.
+Policies scoped only to `service_role` are skipped, since that role bypasses
+RLS anyway. Any table in the result that is not meant to be public is
 readable by anyone holding your anon key.
 
 **`grants.sql`** lists what `anon` and `authenticated` can still reach, next to
